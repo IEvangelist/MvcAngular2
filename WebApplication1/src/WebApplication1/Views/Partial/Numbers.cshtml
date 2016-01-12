@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "API";
+}
+<numbers>
+    <style>
+        .grey-border {
+            margin-top: 20px;
+            padding: 10px;
+            -webkit-box-shadow: 0 0 15px #999;
+            box-shadow: 0 0 15px #999;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <div class="grey-border">
+        <button type="button" (click)="get()" class="btn btn-primary">
+            Perform Web API 2, Http-GET  <span class="badge">{{apiOccurances}}</span>
+        </button>
+        <span *ngIf="isLoading">Loading...</span>
+        <div class="list-group" *ngIf="data != null">
+            <li class="list-group-item" *ngFor="#num of data">{{ num | number:'2.3-5' }}</li>
+        </div>
+    </div>
+</numbers>

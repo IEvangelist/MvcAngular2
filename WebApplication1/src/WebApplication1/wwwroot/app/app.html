@@ -1,0 +1,24 @@
+﻿<div class="page-header">
+    <h1>
+        MVC, Angular2
+        <br>
+        <small>Sample</small>
+    </h1>
+</div>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <span class="glyphicon glyphicon-sunglasses"></span>
+            </a>
+        </div>
+        <ul *ngIf="routes != null" class="nav navbar-nav">
+            <li *ngFor="#rt of routes" [class.active]="getLinkStyle(rt)">
+                <a [routerLink]="[rt.name]">{{rt.name}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="content padding has-header">
+    <router-outlet></router-outlet>
+</div>
