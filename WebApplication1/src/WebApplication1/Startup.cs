@@ -34,7 +34,9 @@ namespace WebApplication1
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, 
+                              IHostingEnvironment env, 
+                              ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -49,15 +51,20 @@ namespace WebApplication1
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseIISPlatformHandler(options => options.AuthenticationDescriptions.Clear());
+            app.UseIISPlatformHandler(options => 
+                                      options.AuthenticationDescriptions.Clear());
             app.UseStaticFiles();
             app.UseGlimpse();
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
-                routes.MapRoute("spa-fallback", "{*anything}", new { controller = "Home", action = "Index" });
-                routes.MapWebApiRoute("defaultApi", "api/{controller}/{id?}");
+                routes.MapRoute("default", 
+                                "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute("spa-fallback", 
+                                "{*anything}", 
+                                new { controller = "Home", action = "Index" });
+                routes.MapWebApiRoute("defaultApi", 
+                                      "api/{controller}/{id?}");
             });
         }
     }
