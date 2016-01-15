@@ -28,6 +28,6 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "lite-server",
-    "start": " \"npm run tsc:w\" \"cd ../Jci.Poc.Consumable \" \"gulp publish-app \" \"cd ../Jci.Poc \" \"npm run lite\" "
+    "start": " \"npm run tsc:w\" \"npm run lite\" "
   }
 }
